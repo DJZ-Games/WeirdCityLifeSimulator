@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class GameTime : MonoBehaviour
+{
+    public PlayerAmount playerAmount;
+    public int currentTime = 6;
+    public int secondsTime = 0;
+    public float deltaTime = 0.0f;
+
+    public TMP_Text currentTimeText;
+    public TMP_Text secondsTimeText;
+
+    public void Start()
+    {
+        currentTime = 6;
+    }
+
+    public void Update()
+    {
+        deltaTime += Time.deltaTime;
+
+        if (deltaTime >= 1f) 
+        {
+            secondsTime += 1;
+            deltaTime -= 1f;
+        }
+
+        if (currentTime >= 24)
+        {
+            currentTime -= 24;
+        }
+
+        if (secondsTime >= 60) 
+        {
+            currentTime += 1;
+            secondsTime -= 60;
+            playerAmount.energy -= 1;
+            playerAmount.water -= 1;
+        }
+
+        if (currentTimeText != null)
+        {
+            currentTimeText.text = $"{currentTime}";
+        }
+
+        if (secondsTimeText != null) 
+        {
+            secondsTimeText.text = $"{secondsTime}";
+        }
+
+        Debug.Log($"Current Time: {currentTime},Time Added This Frame: {deltaTime}");
+    }
+}
