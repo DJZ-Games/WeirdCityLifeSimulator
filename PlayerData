@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class PlayerData : MonoBehaviour
+{
+    public int health;
+    public int money;
+    public int energy;
+    public int water;
+
+    public float[] position;
+
+    public PlayerData (PlayerAmount amount) 
+    {
+        health = amount.health;
+        money = amount.money;
+        energy = amount.energy;
+        water = amount.water;
+
+        position = new float[3];
+        position[0] = amount.transform.position.x;
+        position[1] = amount.transform.position.y;
+        position[3] = amount.transform.position.z;
+    }
+}
