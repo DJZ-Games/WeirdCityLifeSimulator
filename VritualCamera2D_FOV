@@ -1,0 +1,28 @@
+using Cinemachine;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class VritualCamera2D_FOV : MonoBehaviour
+{
+    [SerializeField] TextMeshProUGUI text;
+    public Slider slider;
+    public CinemachineVirtualCamera VirtualCamera;
+
+    public void Awake()
+    {
+        slider.value = 65f;
+    }
+
+    public void Update()
+    {
+        VolumeFOV();
+    }
+
+    public void VolumeFOV() 
+    {
+        VirtualCamera.m_Lens.FieldOfView = slider.value;
+    }
+}
