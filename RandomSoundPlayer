@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RandomSoundPlayer : MonoBehaviour
+{
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip[] clips;
+
+    private List<AudioClip> availableClips;
+
+    private void Awake()
+    {
+        if (audioSource == null) 
+        {
+            audioSource = GetComponent<AudioSource>();
+        }       
+        availableClips = new List<AudioClip>(clips);
+    }
+
+    public void PlayRandomClip() 
+    {
+        if (availableClips.Count > 0) 
+        {
+            int randomIndex = Random.Range(0, availableClips.Count);
+            AudioClip clipToPlay = availableClips[randomIndex];
+
+            audioSource.clip = clipToPlay;
+            audioSource.Play();
+        }
+        else 
+        {
+            Debug.LogWarning("Clip = 0");
+        }
+    }
+}
