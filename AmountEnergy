@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class AmountEnergy : MonoBehaviour
+{
+    public void Start()
+    {
+        if (Application.isPlaying) 
+        {
+            Debug.Log("AmountEnergy.cs -> is null");
+        }
+    }
+}
