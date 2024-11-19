@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerAmount : MonoBehaviour
 {
     public int health = 100;
-    public int money = 1450;
+    public int money = 100;
     public int energy = 100;
     public int water = 100;
 
@@ -43,12 +43,12 @@ public class PlayerAmount : MonoBehaviour
 
         if (health_Text != null)
         {
-            health_Text.text = $"{health_Text}";
+            health_Text.text = $"{health}";
         }
 
         if (money_Text != null)
         {
-            money_Text.text = $"{money_Text}";
+            money_Text.text = $"{money}";
         }
 
         if (energy_Text != null)
